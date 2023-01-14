@@ -12,6 +12,7 @@ import UIKit
 protocol HomeViewProtocol: AnyObject {
     // PRESENTER -> VIEW
     var presenter: HomePresenterProtocol? { get set }
+    func setupHomeView()
 }
 
 protocol HomeWireFrameProtocol {

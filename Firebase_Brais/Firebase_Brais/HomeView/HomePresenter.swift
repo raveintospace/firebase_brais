@@ -20,6 +20,7 @@ final class HomePresenter  {
 extension HomePresenter: HomePresenterProtocol {
     // TODO: implement presenter methods
     func viewDidLoad() {
+        view?.setupHomeView()
     }
 }
 

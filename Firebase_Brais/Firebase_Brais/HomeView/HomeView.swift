@@ -20,8 +20,8 @@ final class HomeView: UIViewController {
     
     var emailTextField = UITextField()
     var passwordTextField = UITextField()
+    var signUpButton = UIButton()
     var loginButton = UIButton()
-    var cancelButton = UIButton()
 
     // MARK: - Lifecycle
 
@@ -44,6 +44,8 @@ extension HomeView: HomeViewProtocol {
         centeredParagraphStyle.alignment = .center
         setupEmailTextField()
         setupPasswordTextField()
+        setupSignUpButton()
+        setupLoginButton()
     }
     
     func setupEmailTextField() {
@@ -68,12 +70,42 @@ extension HomeView: HomeViewProtocol {
         passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 3).isActive = true
         passwordTextField.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor).isActive = true
         passwordTextField.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.75).isActive = true
-        passwordTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        passwordTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
         
         passwordTextField.configureLoginTextField()
         passwordTextField.attributedPlaceholder = NSAttributedString(
             string: "Enter your password",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.paragraphStyle: centeredParagraphStyle])
         passwordTextField.isSecureTextEntry = true
+    }
+    
+    func setupSignUpButton() {
+        view.addSubview(signUpButton)
+        
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        signUpButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 6).isActive = true
+        signUpButton.trailingAnchor.constraint(equalTo: safeArea.centerXAnchor, constant: -1).isActive = true
+        signUpButton.widthAnchor.constraint(equalTo: emailTextField.widthAnchor, multiplier: 0.48).isActive = true
+        signUpButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
+        
+        signUpButton.layer.cornerRadius = 10
+        signUpButton.setTitle("Sign up", for: .normal)
+        signUpButton.setTitleColor(.white, for: .normal)
+        signUpButton.backgroundColor = .blue
+    }
+    
+    func setupLoginButton() {
+        view.addSubview(loginButton)
+        
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 6).isActive = true
+        loginButton.leadingAnchor.constraint(equalTo: safeArea.centerXAnchor, constant: 1).isActive = true
+        loginButton.widthAnchor.constraint(equalTo: emailTextField.widthAnchor, multiplier: 0.48).isActive = true
+        loginButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
+        
+        loginButton.layer.cornerRadius = 10
+        loginButton.setTitle("Log in", for: .normal)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.backgroundColor = .blue
     }
 }

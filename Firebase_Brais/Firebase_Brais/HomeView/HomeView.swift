@@ -16,12 +16,12 @@ final class HomeView: UIViewController {
     var presenter: HomePresenterProtocol?
     
     var safeArea: UILayoutGuide!
+    let centeredParagraphStyle = NSMutableParagraphStyle()
+    
     var emailTextField = UITextField()
     var passwordTextField = UITextField()
     var loginButton = UIButton()
     var cancelButton = UIButton()
-    
-    let centeredParagraphStyle = NSMutableParagraphStyle()
 
     // MARK: - Lifecycle
 
@@ -43,6 +43,7 @@ extension HomeView: HomeViewProtocol {
         safeArea = view.layoutMarginsGuide
         centeredParagraphStyle.alignment = .center
         setupEmailTextField()
+        setupPasswordTextField()
     }
     
     func setupEmailTextField() {
@@ -54,12 +55,25 @@ extension HomeView: HomeViewProtocol {
         emailTextField.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.75).isActive = true
         emailTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-    
-        emailTextField.backgroundColor = .cyan
+        emailTextField.configureLoginTextField()
         emailTextField.attributedPlaceholder = NSAttributedString(
             string: "Enter your email",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.paragraphStyle: centeredParagraphStyle])
-        emailTextField.textColor = .black
-        emailTextField.textAlignment = .center
+    }
+    
+    func setupPasswordTextField() {
+        view.addSubview(passwordTextField)
+        
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 3).isActive = true
+        passwordTextField.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor).isActive = true
+        passwordTextField.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.75).isActive = true
+        passwordTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        passwordTextField.configureLoginTextField()
+        passwordTextField.attributedPlaceholder = NSAttributedString(
+            string: "Enter your password",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.paragraphStyle: centeredParagraphStyle])
+        passwordTextField.isSecureTextEntry = true
     }
 }

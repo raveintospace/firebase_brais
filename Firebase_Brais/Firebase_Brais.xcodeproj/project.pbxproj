@@ -46,6 +46,7 @@
 		3462FA7629731BDF00506956 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3462FA7529731BDF00506956 /* FirebaseRemoteConfigSwift */; };
 		3462FA7829731BDF00506956 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3462FA7729731BDF00506956 /* FirebaseStorage */; };
 		3462FA7A29731BDF00506956 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 3462FA7929731BDF00506956 /* FirebaseStorageCombine-Community */; };
+		3493B3AD2975C7C800AD701A /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3493B3AC2975C7C800AD701A /* UITextFieldExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		3462FA382973116900506956 /* HomeRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRemoteDataManager.swift; sourceTree = "<group>"; };
 		3462FA392973116900506956 /* HomeWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireFrame.swift; sourceTree = "<group>"; };
 		3462FA4229731ACF00506956 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3493B3AC2975C7C800AD701A /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				3462FA2A29730F6F00506956 /* LaunchScreen.storyboard */,
 				3462FA2D29730F6F00506956 /* Info.plist */,
 				3462FA4229731ACF00506956 /* GoogleService-Info.plist */,
+				3493B3AB2975C79A00AD701A /* UIElementsExtensions */,
 			);
 			path = Firebase_Brais;
 			sourceTree = "<group>";
@@ -145,6 +148,14 @@
 				3462FA392973116900506956 /* HomeWireFrame.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		3493B3AB2975C79A00AD701A /* UIElementsExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				3493B3AC2975C7C800AD701A /* UITextFieldExtension.swift */,
+			);
+			path = UIElementsExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +266,7 @@
 				3462FA2229730F6D00506956 /* SceneDelegate.swift in Sources */,
 				3462FA3C2973116900506956 /* HomeProtocols.swift in Sources */,
 				3462FA3E2973116900506956 /* HomeView.swift in Sources */,
+				3493B3AD2975C7C800AD701A /* UITextFieldExtension.swift in Sources */,
 				3462FA3F2973116900506956 /* HomeRemoteDataManager.swift in Sources */,
 				3462FA3A2973116900506956 /* HomePresenter.swift in Sources */,
 				3462FA3D2973116900506956 /* HomeInteractor.swift in Sources */,

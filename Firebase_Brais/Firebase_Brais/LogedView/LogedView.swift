@@ -26,7 +26,7 @@ final class LogedView: UIViewController {
     private let email: String
     private let provider: ProviderType
 
-    init(email: String, provider: ProviderType) {
+    init(email: String, provider: ProviderType) {   // mirar si aixo es pot passar en crear el loged view
         self.email = email
         self.provider = provider
         super.init(nibName: nil, bundle: nil)

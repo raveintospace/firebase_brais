@@ -1,7 +1,7 @@
 //
 //  LogedWireFrame.swift
 //  Firebase_Brais
-//
+//  https://youtu.be/UFpzBJfAtFw - minut 13 - dijous 19
 //  Created by Uri on 17/1/23.
 //  
 //

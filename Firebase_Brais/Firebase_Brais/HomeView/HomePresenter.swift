@@ -18,9 +18,12 @@ final class HomePresenter  {
 }
 
 extension HomePresenter: HomePresenterProtocol {
-    // TODO: implement presenter methods
     func viewDidLoad() {
         view?.setupHomeView()
+    }
+    
+    func showLogedView(with email: String, provider: ProviderType) {
+        wireFrame?.presentLogedView(from: view!, withEmail: email, withProvider: provider)
     }
 }
 

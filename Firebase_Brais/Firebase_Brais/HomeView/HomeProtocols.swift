@@ -18,6 +18,8 @@ protocol HomeViewProtocol: AnyObject {
 protocol HomeWireFrameProtocol {
     // PRESENTER -> WIREFRAME
     static func createHomeModule() -> UINavigationController
+    
+    func presentLogedView(from view: HomeViewProtocol, withEmail: String, withProvider: ProviderType)
 }
 
 protocol HomePresenterProtocol: AnyObject {
@@ -27,6 +29,7 @@ protocol HomePresenterProtocol: AnyObject {
     var wireFrame: HomeWireFrameProtocol? { get set }
     
     func viewDidLoad()
+    func showLogedView(with email: String, provider: ProviderType)
 }
 
 protocol HomeInteractorOutputProtocol {

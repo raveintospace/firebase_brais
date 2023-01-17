@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343EA76C2977120E0078719E /* LogedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343EA7652977120E0078719E /* LogedPresenter.swift */; };
+		343EA76D2977120E0078719E /* LogedLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343EA7662977120E0078719E /* LogedLocalDataManager.swift */; };
+		343EA76E2977120E0078719E /* LogedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343EA7672977120E0078719E /* LogedProtocols.swift */; };
+		343EA76F2977120E0078719E /* LogedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343EA7682977120E0078719E /* LogedInteractor.swift */; };
+		343EA7702977120E0078719E /* LogedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343EA7692977120E0078719E /* LogedView.swift */; };
+		343EA7712977120E0078719E /* LogedRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343EA76A2977120E0078719E /* LogedRemoteDataManager.swift */; };
+		343EA7722977120E0078719E /* LogedWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343EA76B2977120E0078719E /* LogedWireFrame.swift */; };
 		3462FA2029730F6D00506956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3462FA1F29730F6D00506956 /* AppDelegate.swift */; };
 		3462FA2229730F6D00506956 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3462FA2129730F6D00506956 /* SceneDelegate.swift */; };
 		3462FA2929730F6F00506956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3462FA2829730F6F00506956 /* Assets.xcassets */; };
@@ -50,6 +57,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		343EA7652977120E0078719E /* LogedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedPresenter.swift; sourceTree = "<group>"; };
+		343EA7662977120E0078719E /* LogedLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedLocalDataManager.swift; sourceTree = "<group>"; };
+		343EA7672977120E0078719E /* LogedProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedProtocols.swift; sourceTree = "<group>"; };
+		343EA7682977120E0078719E /* LogedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedInteractor.swift; sourceTree = "<group>"; };
+		343EA7692977120E0078719E /* LogedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedView.swift; sourceTree = "<group>"; };
+		343EA76A2977120E0078719E /* LogedRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedRemoteDataManager.swift; sourceTree = "<group>"; };
+		343EA76B2977120E0078719E /* LogedWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedWireFrame.swift; sourceTree = "<group>"; };
 		3462FA1C29730F6D00506956 /* Firebase_Brais.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Firebase_Brais.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3462FA1F29730F6D00506956 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3462FA2129730F6D00506956 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +119,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		343EA773297712140078719E /* LogedView */ = {
+			isa = PBXGroup;
+			children = (
+				343EA7692977120E0078719E /* LogedView.swift */,
+				343EA7682977120E0078719E /* LogedInteractor.swift */,
+				343EA7652977120E0078719E /* LogedPresenter.swift */,
+				343EA7672977120E0078719E /* LogedProtocols.swift */,
+				343EA7662977120E0078719E /* LogedLocalDataManager.swift */,
+				343EA76A2977120E0078719E /* LogedRemoteDataManager.swift */,
+				343EA76B2977120E0078719E /* LogedWireFrame.swift */,
+			);
+			path = LogedView;
+			sourceTree = "<group>";
+		};
 		3462FA1329730F6D00506956 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +155,7 @@
 				3462FA1F29730F6D00506956 /* AppDelegate.swift */,
 				3462FA2129730F6D00506956 /* SceneDelegate.swift */,
 				3462FA412973118600506956 /* HomeView */,
+				343EA773297712140078719E /* LogedView */,
 				3462FA2829730F6F00506956 /* Assets.xcassets */,
 				3462FA2A29730F6F00506956 /* LaunchScreen.storyboard */,
 				3462FA2D29730F6F00506956 /* Info.plist */,
@@ -263,12 +292,19 @@
 			files = (
 				3462FA2029730F6D00506956 /* AppDelegate.swift in Sources */,
 				3462FA3B2973116900506956 /* HomeLocalDataManager.swift in Sources */,
+				343EA7702977120E0078719E /* LogedView.swift in Sources */,
+				343EA7712977120E0078719E /* LogedRemoteDataManager.swift in Sources */,
 				3462FA2229730F6D00506956 /* SceneDelegate.swift in Sources */,
 				3462FA3C2973116900506956 /* HomeProtocols.swift in Sources */,
+				343EA76F2977120E0078719E /* LogedInteractor.swift in Sources */,
+				343EA7722977120E0078719E /* LogedWireFrame.swift in Sources */,
 				3462FA3E2973116900506956 /* HomeView.swift in Sources */,
+				343EA76E2977120E0078719E /* LogedProtocols.swift in Sources */,
+				343EA76D2977120E0078719E /* LogedLocalDataManager.swift in Sources */,
 				3493B3AD2975C7C800AD701A /* UITextFieldExtension.swift in Sources */,
 				3462FA3F2973116900506956 /* HomeRemoteDataManager.swift in Sources */,
 				3462FA3A2973116900506956 /* HomePresenter.swift in Sources */,
+				343EA76C2977120E0078719E /* LogedPresenter.swift in Sources */,
 				3462FA3D2973116900506956 /* HomeInteractor.swift in Sources */,
 				3462FA402973116900506956 /* HomeWireFrame.swift in Sources */,
 			);

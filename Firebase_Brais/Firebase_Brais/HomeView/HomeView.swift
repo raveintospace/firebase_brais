@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseAnalytics
+import FirebaseAuth
 
 final class HomeView: UIViewController {
 
@@ -18,10 +19,10 @@ final class HomeView: UIViewController {
     var safeArea: UILayoutGuide!
     let centeredParagraphStyle = NSMutableParagraphStyle()
     
-    var emailTextField = UITextField()
-    var passwordTextField = UITextField()
-    var signUpButton = UIButton()
-    var loginButton = UIButton()
+    let emailTextField = UITextField()
+    let passwordTextField = UITextField()
+    let signUpButton = UIButton()
+    let logInButton = UIButton()
 
     // MARK: - Lifecycle
 
@@ -39,13 +40,15 @@ final class HomeView: UIViewController {
 
 extension HomeView: HomeViewProtocol {
 
+    // MARK: - View Layout
     func setupHomeView() {
+        self.navigationItem.title = "Authentication"
         safeArea = view.layoutMarginsGuide
         centeredParagraphStyle.alignment = .center
         setupEmailTextField()
         setupPasswordTextField()
         setupSignUpButton()
-        setupLoginButton()
+        setupLogInButton()
     }
     
     func setupEmailTextField() {
@@ -61,6 +64,7 @@ extension HomeView: HomeViewProtocol {
         emailTextField.attributedPlaceholder = NSAttributedString(
             string: "Enter your email",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.paragraphStyle: centeredParagraphStyle])
+        emailTextField.keyboardType = .emailAddress
     }
     
     func setupPasswordTextField() {
@@ -92,20 +96,42 @@ extension HomeView: HomeViewProtocol {
         signUpButton.setTitle("Sign up", for: .normal)
         signUpButton.setTitleColor(.white, for: .normal)
         signUpButton.backgroundColor = .blue
+        
+        signUpButton.addTarget(self, action: #selector(signUpButtonAction), for: .touchUpInside)
     }
     
-    func setupLoginButton() {
-        view.addSubview(loginButton)
+    func setupLogInButton() {
+        view.addSubview(logInButton)
         
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 6).isActive = true
-        loginButton.leadingAnchor.constraint(equalTo: safeArea.centerXAnchor, constant: 1).isActive = true
-        loginButton.widthAnchor.constraint(equalTo: emailTextField.widthAnchor, multiplier: 0.48).isActive = true
-        loginButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
+        logInButton.translatesAutoresizingMaskIntoConstraints = false
+        logInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 6).isActive = true
+        logInButton.leadingAnchor.constraint(equalTo: safeArea.centerXAnchor, constant: 1).isActive = true
+        logInButton.widthAnchor.constraint(equalTo: emailTextField.widthAnchor, multiplier: 0.48).isActive = true
+        logInButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
         
-        loginButton.layer.cornerRadius = 10
-        loginButton.setTitle("Log in", for: .normal)
-        loginButton.setTitleColor(.white, for: .normal)
-        loginButton.backgroundColor = .blue
+        logInButton.layer.cornerRadius = 10
+        logInButton.setTitle("Log in", for: .normal)
+        logInButton.setTitleColor(.white, for: .normal)
+        logInButton.backgroundColor = .blue
+    }
+    
+    // MARK: - UIButtons Actions
+    
+    @objc func signUpButtonAction() {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            
+            Auth.auth().createUser(withEmail: email, password: password) {
+                (result, error) in
+                
+                if let result = result, error == nil {  // user successfully created
+                    self.presenter?.showLogedView(with: result.user.email!, provider: .basic)
+                    
+                } else {    // error
+                    let ac = UIAlertController(title: "Error", message: "Error creating the user", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(ac, animated: true, completion: nil)
+                }
+            }
+        }
     }
 }

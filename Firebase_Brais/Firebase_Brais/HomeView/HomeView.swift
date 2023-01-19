@@ -23,6 +23,7 @@ final class HomeView: UIViewController {
     let passwordTextField = UITextField()
     let signUpButton = UIButton()
     let logInButton = UIButton()
+    let googleButton = UIButton()
 
     // MARK: - Lifecycle
 
@@ -49,6 +50,7 @@ extension HomeView: HomeViewProtocol {
         setupPasswordTextField()
         setupSignUpButton()
         setupLogInButton()
+        setupGoogleButton()
     }
     
     func setupEmailTextField() {
@@ -116,6 +118,22 @@ extension HomeView: HomeViewProtocol {
         logInButton.backgroundColor = .blue
         
         logInButton.addTarget(self, action: #selector(logInButtonAction), for: .touchUpInside)
+    }
+    
+    func setupGoogleButton() {
+        view.addSubview(googleButton)
+        
+        googleButton.translatesAutoresizingMaskIntoConstraints = false
+        googleButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 6).isActive = true
+        googleButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor).isActive = true
+        googleButton.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.75).isActive = true
+        googleButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
+        
+        googleButton.layer.cornerRadius = 10
+        googleButton.setTitle("Google", for: .normal)
+        googleButton.setImage(UIImage(named: "Google_icon"), for: .normal)
+        googleButton.setTitleColor(.blue, for: .normal)
+        googleButton.backgroundColor = .white
     }
     
     // MARK: - UIButtons Actions

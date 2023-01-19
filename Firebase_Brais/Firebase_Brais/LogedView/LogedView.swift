@@ -24,7 +24,6 @@ final class LogedView: UIViewController {
     let providerLabel = UILabel()
     let logoutButton = UIButton()
     
-//    var email: String = ""
     var provider: ProviderType?
 
 //    init(email: String, provider: ProviderType) {   // mirar si aixo es pot passar en crear el loged view
@@ -108,7 +107,7 @@ extension LogedView: LogedViewProtocol {
                 try Auth.auth().signOut()
                 navigationController?.popViewController(animated: true)
             } catch {
-                // An error happened
+                print("An error happened with case basic")
             }
         case .none:
             print("case none")

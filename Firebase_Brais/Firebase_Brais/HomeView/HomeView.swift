@@ -89,7 +89,7 @@ extension HomeView: HomeViewProtocol {
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         signUpButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 6).isActive = true
         signUpButton.trailingAnchor.constraint(equalTo: safeArea.centerXAnchor, constant: -1).isActive = true
-        signUpButton.widthAnchor.constraint(equalTo: emailTextField.widthAnchor, multiplier: 0.48).isActive = true
+        signUpButton.widthAnchor.constraint(equalTo: emailTextField.widthAnchor, multiplier: 0.49).isActive = true
         signUpButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
         
         signUpButton.layer.cornerRadius = 10
@@ -106,7 +106,7 @@ extension HomeView: HomeViewProtocol {
         logInButton.translatesAutoresizingMaskIntoConstraints = false
         logInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 6).isActive = true
         logInButton.leadingAnchor.constraint(equalTo: safeArea.centerXAnchor, constant: 1).isActive = true
-        logInButton.widthAnchor.constraint(equalTo: emailTextField.widthAnchor, multiplier: 0.48).isActive = true
+        logInButton.widthAnchor.constraint(equalTo: emailTextField.widthAnchor, multiplier: 0.49).isActive = true
         logInButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
         
         logInButton.layer.cornerRadius = 10
@@ -156,3 +156,8 @@ extension HomeView: HomeViewProtocol {
     }
     
 }
+
+
+// MARK: - TO DO
+
+// dark mode: navigation title black, detailview textcolor in black

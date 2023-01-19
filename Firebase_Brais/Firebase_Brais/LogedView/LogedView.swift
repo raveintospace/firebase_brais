@@ -41,6 +41,7 @@ final class LogedView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        view.backgroundColor = UIColor(red: 236/255, green: 239/255, blue: 241/255, alpha: 1)
     }
 }
 
@@ -52,6 +53,7 @@ extension LogedView: LogedViewProtocol {
         safeArea = view.layoutMarginsGuide
         setupemailLabel()
         setupProviderLabel()
+        setupLogoutButton()
     }
     
     func setupemailLabel() {
@@ -63,7 +65,6 @@ extension LogedView: LogedViewProtocol {
         emailLabel.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.75).isActive = true
         emailLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        // emailLabel.text = "Email"
         emailLabel.layer.cornerRadius = 10
     }
     
@@ -75,8 +76,7 @@ extension LogedView: LogedViewProtocol {
         providerLabel.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor).isActive = true
         providerLabel.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.75).isActive = true
         providerLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-        // providerLabel.text = "Provider"
+
         providerLabel.layer.cornerRadius = 10
     }
     
@@ -89,17 +89,17 @@ extension LogedView: LogedViewProtocol {
         logoutButton.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.75).isActive = true
         logoutButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        logoutButton.backgroundColor = .orange
         logoutButton.layer.cornerRadius = 10
         logoutButton.setTitle("Log out", for: .normal)
         logoutButton.setTitleColor(.white, for: .normal)
+        logoutButton.backgroundColor = .orange
     }
     
     // MARK: - View data configuration
     
     func showDataInLogedVC(email: String, provider: ProviderType) {
         emailLabel.text = email
-        providerLabel.text = provider.rawValue
+        providerLabel.text = provider.rawValue.capitalized
     }
     
 }

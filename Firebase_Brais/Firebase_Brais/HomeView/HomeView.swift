@@ -113,6 +113,8 @@ extension HomeView: HomeViewProtocol {
         logInButton.setTitle("Log in", for: .normal)
         logInButton.setTitleColor(.white, for: .normal)
         logInButton.backgroundColor = .blue
+        
+        logInButton.addTarget(self, action: #selector(logInButtonAction), for: .touchUpInside)
     }
     
     // MARK: - UIButtons Actions
@@ -134,4 +136,23 @@ extension HomeView: HomeViewProtocol {
             }
         }
     }
+    
+    @objc func logInButtonAction() {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            
+            Auth.auth().signIn(withEmail: email, password: password) {
+                (result, error) in
+                
+                if let result = result, error == nil {  // user successfully created
+                    self.presenter?.showLogedView(with: result.user.email!, provider: .basic)
+                    
+                } else {    // error
+                    let ac = UIAlertController(title: "Error", message: "Error creating the user", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(ac, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
 }

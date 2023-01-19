@@ -13,6 +13,7 @@ protocol LogedViewProtocol: AnyObject {
     // PRESENTER -> VIEW
     var presenter: LogedPresenterProtocol? { get set }
     func setupLogedView()
+    func showDataInLogedVC(email: String, provider: ProviderType)
 }
 
 protocol LogedWireFrameProtocol {

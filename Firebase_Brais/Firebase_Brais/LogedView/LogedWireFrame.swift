@@ -12,7 +12,7 @@ import UIKit
 final class LogedWireFrame: LogedWireFrameProtocol {
     
     static func createLogedModule(email: String, provider: ProviderType) -> UIViewController {
-        let view = LogedView(coder: <#NSCoder#>)
+        let view = LogedView()
         let presenter: LogedPresenterProtocol & LogedInteractorOutputProtocol = LogedPresenter()
         let interactor: LogedInteractorInputProtocol & LogedRemoteDataManagerOutputProtocol = LogedInteractor()
         let localDataManager: LogedLocalDataManagerInputProtocol = LogedLocalDataManager()

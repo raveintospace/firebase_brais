@@ -23,18 +23,18 @@ final class LogedView: UIViewController {
     let providerLabel = UILabel()
     let logoutButton = UIButton()
     
-    private let email: String
-    private let provider: ProviderType
+//    var email: String = ""
+//    var provider: ProviderType
 
-    init(email: String, provider: ProviderType) {   // mirar si aixo es pot passar en crear el loged view
-        self.email = email
-        self.provider = provider
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    init(email: String, provider: ProviderType) {   // mirar si aixo es pot passar en crear el loged view
+//        self.email = email
+//        self.provider = provider
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     // MARK: - Lifecycle
 
@@ -63,7 +63,7 @@ extension LogedView: LogedViewProtocol {
         emailLabel.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.75).isActive = true
         emailLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        emailLabel.text = "Email"
+        // emailLabel.text = "Email"
         emailLabel.layer.cornerRadius = 10
     }
     
@@ -76,7 +76,7 @@ extension LogedView: LogedViewProtocol {
         providerLabel.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.75).isActive = true
         providerLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        providerLabel.text = "Provider"
+        // providerLabel.text = "Provider"
         providerLabel.layer.cornerRadius = 10
     }
     
@@ -93,6 +93,13 @@ extension LogedView: LogedViewProtocol {
         logoutButton.layer.cornerRadius = 10
         logoutButton.setTitle("Log out", for: .normal)
         logoutButton.setTitleColor(.white, for: .normal)
+    }
+    
+    // MARK: - View data configuration
+    
+    func showDataInLogedVC(email: String, provider: ProviderType) {
+        emailLabel.text = email
+        providerLabel.text = provider.rawValue
     }
     
 }

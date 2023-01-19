@@ -22,7 +22,7 @@ extension HomePresenter: HomePresenterProtocol {
         view?.setupHomeView()
     }
     
-    func showLogedView(with email: String, provider: ProviderType) {
+    func showLogedView(email: String, provider: ProviderType) {
         wireFrame?.presentLogedView(from: view!, withEmail: email, withProvider: provider)
     }
 }

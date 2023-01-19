@@ -65,6 +65,7 @@ extension HomeView: HomeViewProtocol {
             string: "Enter your email",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.paragraphStyle: centeredParagraphStyle])
         emailTextField.keyboardType = .emailAddress
+        emailTextField.autocorrectionType = .no
     }
     
     func setupPasswordTextField() {
@@ -126,7 +127,7 @@ extension HomeView: HomeViewProtocol {
                 (result, error) in
                 
                 if let result = result, error == nil {  // user successfully created
-                    self.presenter?.showLogedView(with: result.user.email!, provider: .basic)
+                    self.presenter?.showLogedView(email: result.user.email!, provider: .basic)
                     
                 } else {    // error
                     let ac = UIAlertController(title: "Error", message: "Error creating the user", preferredStyle: .alert)
@@ -144,7 +145,7 @@ extension HomeView: HomeViewProtocol {
                 (result, error) in
                 
                 if let result = result, error == nil {  // user successfully created
-                    self.presenter?.showLogedView(with: result.user.email!, provider: .basic)
+                    self.presenter?.showLogedView(email: result.user.email!, provider: .basic)
                     
                 } else {    // error
                     let ac = UIAlertController(title: "Error", message: "Error creating the user", preferredStyle: .alert)

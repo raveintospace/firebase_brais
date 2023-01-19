@@ -29,7 +29,7 @@ protocol HomePresenterProtocol: AnyObject {
     var wireFrame: HomeWireFrameProtocol? { get set }
     
     func viewDidLoad()
-    func showLogedView(with email: String, provider: ProviderType)
+    func showLogedView(email: String, provider: ProviderType)
 }
 
 protocol HomeInteractorOutputProtocol {

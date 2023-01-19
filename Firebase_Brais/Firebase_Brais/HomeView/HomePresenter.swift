@@ -25,6 +25,10 @@ extension HomePresenter: HomePresenterProtocol {
     func showLogedView(email: String, provider: ProviderType) {
         wireFrame?.presentLogedView(from: view!, withEmail: email, withProvider: provider)
     }
+    
+    func sendDataToInteractor(email: String, provider: ProviderType) {
+        interactor?.saveUserData(email: email, provider: provider)
+    }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {

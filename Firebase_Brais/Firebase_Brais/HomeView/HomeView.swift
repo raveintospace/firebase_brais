@@ -34,6 +34,10 @@ final class HomeView: UIViewController {
         
         // Analytics event
         Analytics.logEvent("InitScreen", parameters: ["message": "Firebase integration complete"])
+        
+        // Check auth user's session
+            // https://youtu.be/ZH39YDCIK-0
+        
     }
 }
 
@@ -146,7 +150,7 @@ extension HomeView: HomeViewProtocol {
                 
                 if let result = result, error == nil {  // user successfully created
                     self.presenter?.showLogedView(email: result.user.email!, provider: .basic)
-                    
+                    self.presenter?.sendDataToInteractor(email: result.user.email!, provider: .basic)                    
                 } else {    // error
                     let ac = UIAlertController(title: "Error", message: "Error creating the user", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .default))
@@ -162,9 +166,9 @@ extension HomeView: HomeViewProtocol {
             Auth.auth().signIn(withEmail: email, password: password) {
                 (result, error) in
                 
-                if let result = result, error == nil {  // user successfully created
+                if let result = result, error == nil {  // existing user successfully login
                     self.presenter?.showLogedView(email: result.user.email!, provider: .basic)
-                    
+                    self.presenter?.sendDataToInteractor(email: result.user.email!, provider: .basic)
                 } else {    // error
                     let ac = UIAlertController(title: "Error", message: "Error creating the user", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .default))

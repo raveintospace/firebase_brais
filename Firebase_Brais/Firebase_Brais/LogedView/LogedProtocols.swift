@@ -19,6 +19,8 @@ protocol LogedViewProtocol: AnyObject {
 protocol LogedWireFrameProtocol {
     // PRESENTER -> WIREFRAME
     static func createLogedModule(email: String, provider: ProviderType) -> UIViewController
+    
+    func presentHomeView(view: LogedViewProtocol)
 }
 
 protocol LogedPresenterProtocol: AnyObject {
@@ -30,10 +32,12 @@ protocol LogedPresenterProtocol: AnyObject {
     var providerReceived: ProviderType? { get set }
     
     func viewDidLoad()
+    
+    func goBackToHomeView()
 }
 
 protocol LogedInteractorOutputProtocol {
-// INTERACTOR -> PRESENTER
+    // INTERACTOR -> PRESENTER
 }
 
 protocol LogedInteractorInputProtocol: AnyObject {

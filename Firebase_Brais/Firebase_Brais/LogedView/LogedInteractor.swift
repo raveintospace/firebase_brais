@@ -18,5 +18,5 @@ class LogedInteractor: LogedInteractorInputProtocol {
 }
 
 extension LogedInteractor: LogedRemoteDataManagerOutputProtocol {
-    // TODO: Implement use case methods
+    
 }

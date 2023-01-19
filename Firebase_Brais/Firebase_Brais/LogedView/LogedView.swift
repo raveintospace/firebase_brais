@@ -12,6 +12,7 @@ import FirebaseAuth
 
 enum ProviderType: String {
     case basic
+    case google
 }
 
 final class LogedView: UIViewController {
@@ -25,6 +26,7 @@ final class LogedView: UIViewController {
     let logoutButton = UIButton()
     
     var provider: ProviderType?
+    var email: String?
 
 //    init(email: String, provider: ProviderType) {   // mirar si aixo es pot passar en crear el loged view
 //        self.email = email
@@ -50,6 +52,7 @@ extension LogedView: LogedViewProtocol {
     // MARK: - View Layout
     func setupLogedView() {
         self.navigationItem.title = "Loged in view"
+        self.navigationItem.setHidesBackButton(true, animated: false)
         safeArea = view.layoutMarginsGuide
         setupemailLabel()
         setupProviderLabel()
@@ -102,10 +105,10 @@ extension LogedView: LogedViewProtocol {
     @objc func logoutButtonAction() {
         
         switch provider {
-        case .basic:
+        case .basic, .google:
             do {
                 try Auth.auth().signOut()
-                navigationController?.popViewController(animated: true)
+                presenter?.goBackToHomeView() // ask homeinteractor to remove data
             } catch {
                 print("An error happened with case basic")
             }
@@ -120,6 +123,6 @@ extension LogedView: LogedViewProtocol {
         emailLabel.text = email
         providerLabel.text = provider.rawValue.capitalized
         self.provider = provider
+        self.email = email
     }
-    
 }

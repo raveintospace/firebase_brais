@@ -32,4 +32,14 @@ final class LogedWireFrame: LogedWireFrameProtocol {
         
         return view
     }
+    
+    func presentHomeView(view: LogedViewProtocol) {
+        let currentViewController = view as! LogedView
+        
+        currentViewController.navigationController?.popToRootViewController(animated: true)
+        
+        // ask to remove data using destinationVC presenter
+        // notify destinationvc using delegate that is current view controller
+        // https://youtu.be/ZH39YDCIK-0 minut 8 - dj
+    }
 }

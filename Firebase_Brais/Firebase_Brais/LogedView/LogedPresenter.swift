@@ -23,6 +23,11 @@ final class LogedPresenter: LogedPresenterProtocol  {
             view?.setDataInLogedVC(email: emailReceived, provider: providerReceived)
         }
     }
+    
+    func goBackToHomeView() {
+        wireFrame?.presentHomeView(view: view!)
+    }
+
 }
 
 extension LogedPresenter: LogedInteractorOutputProtocol {

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 enum ProviderType: String {
     case basic
@@ -24,7 +25,7 @@ final class LogedView: UIViewController {
     let logoutButton = UIButton()
     
 //    var email: String = ""
-//    var provider: ProviderType
+    var provider: ProviderType?
 
 //    init(email: String, provider: ProviderType) {   // mirar si aixo es pot passar en crear el loged view
 //        self.email = email
@@ -93,13 +94,33 @@ extension LogedView: LogedViewProtocol {
         logoutButton.setTitle("Log out", for: .normal)
         logoutButton.setTitleColor(.white, for: .normal)
         logoutButton.backgroundColor = .orange
+        
+        logoutButton.addTarget(self, action: #selector(logoutButtonAction), for: .touchUpInside)
+    }
+    
+    // MARK: - UIButton Actions
+    
+    @objc func logoutButtonAction() {
+        
+        switch provider {
+        case .basic:
+            do {
+                try Auth.auth().signOut()
+                navigationController?.popViewController(animated: true)
+            } catch {
+                // An error happened
+            }
+        case .none:
+            print("case none")
+        }
     }
     
     // MARK: - View data configuration
     
-    func showDataInLogedVC(email: String, provider: ProviderType) {
+    func setDataInLogedVC(email: String, provider: ProviderType) {
         emailLabel.text = email
         providerLabel.text = provider.rawValue.capitalized
+        self.provider = provider
     }
     
 }

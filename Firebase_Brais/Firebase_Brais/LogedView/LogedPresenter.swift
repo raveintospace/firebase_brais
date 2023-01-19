@@ -20,7 +20,7 @@ final class LogedPresenter: LogedPresenterProtocol  {
     func viewDidLoad() {
         if let emailReceived = emailReceived, let providerReceived = providerReceived {
             view?.setupLogedView()
-            view?.showDataInLogedVC(email: emailReceived, provider: providerReceived)
+            view?.setDataInLogedVC(email: emailReceived, provider: providerReceived)
         }
     }
 }

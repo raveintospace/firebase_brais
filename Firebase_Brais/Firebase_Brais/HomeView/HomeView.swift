@@ -180,6 +180,15 @@ extension HomeView: HomeViewProtocol {
     
 }
 
+// MARK: - Extension for protocol
+
+extension HomeView: LogoutProtocol {
+    func logoutButtonWasPressed() {
+        print("delegate is working")
+        // call presenter to call interactor to remove data
+    }
+}
+
 
 // MARK: - TO DO
 

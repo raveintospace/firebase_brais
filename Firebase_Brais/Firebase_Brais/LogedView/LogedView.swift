@@ -19,6 +19,7 @@ final class LogedView: UIViewController {
 
     // MARK: - Properties
     var presenter: LogedPresenterProtocol?
+    var delegate: LogoutProtocol!
     
     var safeArea: UILayoutGuide!
     let emailLabel = UILabel()
@@ -108,6 +109,7 @@ extension LogedView: LogedViewProtocol {
         case .basic, .google:
             do {
                 try Auth.auth().signOut()
+                delegate.logoutButtonWasPressed()
                 presenter?.goBackToHomeView() // ask homeinteractor to remove data
             } catch {
                 print("An error happened with case basic")

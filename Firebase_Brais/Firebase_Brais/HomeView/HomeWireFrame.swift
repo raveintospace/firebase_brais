@@ -33,9 +33,11 @@ final class HomeWireFrame: HomeWireFrameProtocol {
     }
     
     func presentLogedView(from view: HomeViewProtocol, withEmail: String, withProvider: ProviderType) {
-        let logedView = LogedWireFrame.createLogedModule(email: withEmail, provider: withProvider)
+        let logedView = LogedWireFrame.createLogedModule(email: withEmail, provider: withProvider) as! LogedView
         
         let viewController = view as! HomeView
         viewController.navigationController?.pushViewController(logedView, animated: true)
+        
+        logedView.delegate = viewController
     }
 }

@@ -63,3 +63,7 @@ protocol LogedRemoteDataManagerOutputProtocol {
 protocol LogedLocalDataManagerInputProtocol {
     // INTERACTOR -> LOCALDATAMANAGER
 }
+
+protocol LogoutProtocol {
+    func logoutButtonWasPressed()
+}

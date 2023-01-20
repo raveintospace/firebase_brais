@@ -33,6 +33,10 @@ extension HomePresenter: HomePresenterProtocol {
     func askInteractorToRemoveData() {
         interactor?.removeUserData()
     }
+    
+    func checkInteractorIfDataExists() {
+        
+    }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {

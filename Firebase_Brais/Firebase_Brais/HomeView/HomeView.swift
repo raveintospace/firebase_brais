@@ -36,7 +36,7 @@ final class HomeView: UIViewController {
         Analytics.logEvent("InitScreen", parameters: ["message": "Firebase integration complete"])
         
         // Check auth user's session
-            // https://youtu.be/ZH39YDCIK-0
+        presenter?.checkInteractorIfDataExists()
         
     }
 }

@@ -31,6 +31,7 @@ protocol HomePresenterProtocol: AnyObject {
     func viewDidLoad()
     func showLogedView(email: String, provider: ProviderType)
     func sendDataToInteractor(email: String, provider: ProviderType)
+    func askInteractorToRemoveData()
 }
 
 protocol HomeInteractorOutputProtocol {
@@ -47,8 +48,7 @@ protocol HomeInteractorInputProtocol: AnyObject {
     var provider: ProviderType? { get set }
     
     func saveUserData(email: String, provider: ProviderType)
-    
-    func removeUserData(email: String, provider: ProviderType)
+    func removeUserData()
 }
 
 protocol HomeDataManagerInputProtocol {

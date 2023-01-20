@@ -29,6 +29,10 @@ extension HomePresenter: HomePresenterProtocol {
     func sendDataToInteractor(email: String, provider: ProviderType) {
         interactor?.saveUserData(email: email, provider: provider)
     }
+    
+    func askInteractorToRemoveData() {
+        interactor?.removeUserData()
+    }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {

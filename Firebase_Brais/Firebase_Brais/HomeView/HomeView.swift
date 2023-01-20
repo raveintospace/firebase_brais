@@ -185,7 +185,7 @@ extension HomeView: HomeViewProtocol {
 extension HomeView: LogoutProtocol {
     func logoutButtonWasPressed() {
         print("delegate is working")
-        // call presenter to call interactor to remove data
+        presenter?.askInteractorToRemoveData()
     }
 }
 

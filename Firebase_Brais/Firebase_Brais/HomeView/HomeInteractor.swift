@@ -24,13 +24,17 @@ final class HomeInteractor: HomeInteractorInputProtocol {
         defaults.set(provider.rawValue, forKey: "provider")
         defaults.synchronize()
         print("data saved")
+        print(email)
+        print(provider)
     }
     
-    func removeUserData(email: String, provider: ProviderType) {
+    func removeUserData() {
         defaults.removeObject(forKey: "email")
         defaults.removeObject(forKey: "provider")
         defaults.synchronize()
         print("data removed")
+        print(email)
+        print(provider)
     }
 
 }

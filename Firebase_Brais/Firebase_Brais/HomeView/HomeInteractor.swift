@@ -15,10 +15,10 @@ final class HomeInteractor: HomeInteractorInputProtocol {
     var localDatamanager: HomeLocalDataManagerInputProtocol?
     var remoteDatamanager: HomeRemoteDataManagerInputProtocol?
     
+    let defaults = UserDefaults.standard
     var email: String?
     var provider: ProviderType?
     var dataStored: Bool = false
-    let defaults = UserDefaults.standard
     
     func saveUserData(email: String, provider: ProviderType) {
         defaults.set(email, forKey: "email")
@@ -44,9 +44,15 @@ final class HomeInteractor: HomeInteractorInputProtocol {
     
     func checkUserData() {
         if dataStored {
-            // send de data stored to presenter
+            print("checking data stored")
+            if let email = email, let provider = provider {
+                print(email)
+                print(provider)
+                presenter?.interactorPushDataToPresenter(email: email, provider: provider)
+            }
         } else {
-            // send an empty func to presenter
+            print("no data stored")
+            presenter?.interactorNoDataToPresenter()
         }
         
     }

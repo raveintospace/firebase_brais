@@ -35,10 +35,16 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func checkInteractorIfDataExists() {
-        
+        interactor?.checkUserData()
     }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
-    // TODO: implement interactor output methods
+    func interactorPushDataToPresenter(email: String, provider: ProviderType) {
+        view?.presenterPushDataToView(email: email, provider: provider)
+    }
+    
+    func interactorNoDataToPresenter() {
+        view?.setupHomeView()
+    }
 }

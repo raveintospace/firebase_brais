@@ -29,7 +29,7 @@ final class HomeView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
+       // presenter?.viewDidLoad()
         view.backgroundColor = UIColor(red: 236/255, green: 239/255, blue: 241/255, alpha: 1)
         
         // Analytics event
@@ -37,7 +37,6 @@ final class HomeView: UIViewController {
         
         // Check auth user's session
         presenter?.checkInteractorIfDataExists()
-        
     }
 }
 
@@ -178,6 +177,11 @@ extension HomeView: HomeViewProtocol {
         }
     }
     
+    // MARK: - Load data from login and go to LogedView
+    func presenterPushDataToView(email: String, provider: ProviderType) {
+        print("data exists")
+        presenter?.showLogedView(email: email, provider: provider)
+    }
 }
 
 // MARK: - Extension for protocol

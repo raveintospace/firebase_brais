@@ -13,6 +13,7 @@ protocol HomeViewProtocol: AnyObject {
     // PRESENTER -> VIEW
     var presenter: HomePresenterProtocol? { get set }
     func setupHomeView()
+    func presenterPushDataToView(email: String, provider: ProviderType)
 }
 
 protocol HomeWireFrameProtocol {
@@ -37,6 +38,8 @@ protocol HomePresenterProtocol: AnyObject {
 
 protocol HomeInteractorOutputProtocol {
     // INTERACTOR -> PRESENTER
+    func interactorPushDataToPresenter(email: String, provider: ProviderType)
+    func interactorNoDataToPresenter()
 }
 
 protocol HomeInteractorInputProtocol: AnyObject {
@@ -51,6 +54,7 @@ protocol HomeInteractorInputProtocol: AnyObject {
     
     func saveUserData(email: String, provider: ProviderType)
     func removeUserData()
+    func checkUserData()
 }
 
 protocol HomeDataManagerInputProtocol {

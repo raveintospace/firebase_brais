@@ -12,7 +12,7 @@ import FirebaseAnalytics
 import FirebaseAuth
 
 final class HomeView: UIViewController {
-
+    
     // MARK: - Properties
     var presenter: HomePresenterProtocol?
     
@@ -24,12 +24,12 @@ final class HomeView: UIViewController {
     let signUpButton = UIButton()
     let logInButton = UIButton()
     let googleButton = UIButton()
-
+    
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // presenter?.viewDidLoad()
+        presenter?.viewDidLoad()
         view.backgroundColor = UIColor(red: 236/255, green: 239/255, blue: 241/255, alpha: 1)
         
         // Analytics event
@@ -43,7 +43,7 @@ final class HomeView: UIViewController {
 // MARK: - Extensions
 
 extension HomeView: HomeViewProtocol {
-
+    
     // MARK: - View Layout
     func setupHomeView() {
         self.navigationItem.title = "Authentication"
@@ -149,7 +149,7 @@ extension HomeView: HomeViewProtocol {
                 
                 if let result = result, error == nil {  // user successfully created
                     self.presenter?.showLogedView(email: result.user.email!, provider: .basic)
-                    self.presenter?.sendDataToInteractor(email: result.user.email!, provider: .basic)                    
+                    self.presenter?.sendDataToInteractor(email: result.user.email!, provider: .basic)
                 } else {    // error
                     let ac = UIAlertController(title: "Error", message: "Error creating the user", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .default))

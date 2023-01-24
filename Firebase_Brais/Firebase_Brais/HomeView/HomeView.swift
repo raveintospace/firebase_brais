@@ -189,6 +189,8 @@ extension HomeView: HomeViewProtocol {
 extension HomeView: LogoutProtocol {
     func logoutButtonWasPressed() {
         print("delegate is working")
+        emailTextField.text = ""
+        passwordTextField.text = ""
         presenter?.askInteractorToRemoveData()
     }
 }
@@ -197,3 +199,4 @@ extension HomeView: LogoutProtocol {
 // MARK: - TO DO
 
 // dark mode: navigation title black, detailview textcolor in black
+// show password button - https://levelup.gitconnected.com/beginner-ios-dev-embed-a-secure-text-entry-toggle-button-into-a-uitextfield-17bacfc87608
